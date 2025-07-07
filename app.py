@@ -32,7 +32,7 @@ class MessageRequest(BaseModel):
 @app.post("/chat")
 async def chat_endpoint(req: MessageRequest):
     # Call the OpenAI ChatCompletion endpoint
-    response = openai.chat.completions.create(
+    response = await openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
